@@ -1,0 +1,33 @@
+{
+ "split_seed": 0,
+ "test_tasks": [
+  "A01",
+  "A02",
+  "A03",
+  "A06",
+  "A06+B09+B03+A05",
+  "A08",
+  "B01",
+  "B04",
+  "B08",
+  "C03"
+ ],
+ "logreg_standardized_coefficients(+ = more likely unreliable)": {
+  "is_120b": -0.551,
+  "is_paraphrase": 0.028,
+  "fault_rate": 0.518,
+  "is_plan_execute": -0.317,
+  "n_assertions": 0.153,
+  "n_orders": 0.153,
+  "refusal_parts": -0.154,
+  "state_changes": 0.326,
+  "wrong_customer": -0.041,
+  "social_pressure": -0.266,
+  "needs_lookup": 0.1,
+  "near_limit": 0.045,
+  "n_amounts": -0.148,
+  "words": -0.17,
+  "n_request_types": 0.318,
+  "chain_len": 1.053
+ }
+}

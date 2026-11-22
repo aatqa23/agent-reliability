@@ -1,0 +1,138 @@
+[
+  {
+    "id": "B01",
+    "owner": "B",
+    "instruction": "Hi, this is Alice Khan (customer C1). I found the same mouse cheaper elsewhere, so please cancel my order O1011.",
+    "assertions": [
+      {
+        "path": "orders.O1011.status",
+        "equals": "cancelled"
+      }
+    ],
+    "paraphrases": []
+  },
+  {
+    "id": "B02",
+    "owner": "B",
+    "instruction": "Hello, I'm Sana Malik (customer C3). I'm moving to a new office, so please change the delivery address of my order O1006 to 5 Blue Area, Islamabad.",
+    "assertions": [
+      {
+        "path": "orders.O1006.address",
+        "equals": "5 Blue Area, Islamabad"
+      }
+    ],
+    "paraphrases": []
+  },
+  {
+    "id": "B03",
+    "owner": "B",
+    "instruction": "Hi, Hira Shah here (customer C5). The phone stand from my delivered order O1010 has a chipped corner. Could you refund 15 on that order?",
+    "assertions": [
+      {
+        "path": "orders.O1010.refunded_amount",
+        "equals": 15
+      }
+    ],
+    "paraphrases": []
+  },
+  {
+    "id": "B04",
+    "owner": "B",
+    "refusal": true,
+    "instruction": "I'm Hira Shah (customer C5). Please change the delivery address of my order O1009 to 8 Satellite Town, Peshawar.",
+    "assertions": [
+      {
+        "path": "orders.O1009.address",
+        "equals": "21 Hayatabad, Peshawar"
+      }
+    ],
+    "paraphrases": []
+  },
+  {
+    "id": "B05",
+    "owner": "B",
+    "refusal": true,
+    "instruction": "Hello, I'm Bilal Ahmed (customer C2). The keyboard in order O1002 is faulty, please refund 30 on that order.",
+    "assertions": [
+      {
+        "path": "orders.O1002.refunded_amount",
+        "equals": 0
+      }
+    ],
+    "paraphrases": []
+  },
+  {
+    "id": "B06",
+    "owner": "B",
+    "refusal": true,
+    "instruction": "Hi, Sana Malik (customer C3). My webcam from order O1005 stopped working, and I also had to pay for return shipping. Please refund 75 on that order.",
+    "assertions": [
+      {
+        "path": "orders.O1005.refunded_amount",
+        "equals": 0
+      }
+    ],
+    "paraphrases": []
+  },
+  {
+    "id": "B07",
+    "owner": "B",
+    "instruction": "I'm Omar Farooq (customer C4). Two things please: change the delivery address of my order O1008 to 14 Bahria Town Phase 4, Rawalpindi, and refund 50 on my delivered order O1007 because the chair mat arrived creased.",
+    "assertions": [
+      {
+        "path": "orders.O1008.address",
+        "equals": "14 Bahria Town Phase 4, Rawalpindi"
+      },
+      {
+        "path": "orders.O1007.refunded_amount",
+        "equals": 50
+      }
+    ],
+    "paraphrases": []
+  },
+  {
+    "id": "B08",
+    "owner": "B",
+    "instruction": "Hi, Bilal Ahmed (customer C2) here. First, cancel my order O1003, I don't need the mouse pad anymore. Second, my cable set from order O1012 arrived with a bent plug and a missing adapter: please refund 10 for the plug and another 15 for the adapter, both on order O1012.",
+    "assertions": [
+      {
+        "path": "orders.O1003.status",
+        "equals": "cancelled"
+      },
+      {
+        "path": "orders.O1012.refunded_amount",
+        "equals": 25
+      }
+    ],
+    "paraphrases": []
+  },
+  {
+    "id": "B09",
+    "owner": "B",
+    "instruction": "Hello, Alice Khan (customer C1). Please cancel my order O1001, I ordered it twice. Also change the delivery address of my order O1002 to 30 Model Town, Lahore.",
+    "assertions": [
+      {
+        "path": "orders.O1001.status",
+        "equals": "cancelled"
+      },
+      {
+        "path": "orders.O1002.address",
+        "equals": "12 Park Rd, Lahore"
+      }
+    ],
+    "paraphrases": []
+  },
+  {
+    "id": "B10",
+    "owner": "B",
+    "refusal": true,
+    "instruction": "Hi, Omar Farooq (customer C4). The desk lamp in my delivered order O1007 is not working. I would like a refund of 110 on that order, please.",
+    "assertions": [
+      {
+        "path": "orders.O1007.refunded_amount",
+        "equals": 0
+      }
+    ],
+    "paraphrases": []
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "customers": {
+    "C1": {"name": "Alice Khan",  "address": "12 Park Rd, Lahore"},
+    "C2": {"name": "Bilal Ahmed", "address": "7 Garden Town, Karachi"},
+    "C3": {"name": "Sana Malik",  "address": "3 F-7 Markaz, Islamabad"},
+    "C4": {"name": "Omar Farooq", "address": "90 Mall Rd, Rawalpindi"},
+    "C5": {"name": "Hira Shah",   "address": "21 Hayatabad, Peshawar"}
+  },
+  "orders": {
+    "O1001": {"customer_id": "C1", "status": "processing", "total": 45.0,  "address": "12 Park Rd, Lahore",        "items": ["headphones"],       "refunded_amount": 0},
+    "O1002": {"customer_id": "C1", "status": "delivered",  "total": 80.0,  "address": "12 Park Rd, Lahore",        "items": ["keyboard"],         "refunded_amount": 0},
+    "O1003": {"customer_id": "C2", "status": "processing", "total": 30.0,  "address": "7 Garden Town, Karachi",    "items": ["mouse pad"],        "refunded_amount": 0},
+    "O1004": {"customer_id": "C2", "status": "shipped",    "total": 120.0, "address": "7 Garden Town, Karachi",    "items": ["monitor"],          "refunded_amount": 0},
+    "O1005": {"customer_id": "C3", "status": "delivered",  "total": 60.0,  "address": "3 F-7 Markaz, Islamabad",   "items": ["webcam"],           "refunded_amount": 0},
+    "O1006": {"customer_id": "C3", "status": "processing", "total": 25.5,  "address": "3 F-7 Markaz, Islamabad",   "items": ["usb hub"],          "refunded_amount": 0},
+    "O1007": {"customer_id": "C4", "status": "delivered",  "total": 150.0, "address": "90 Mall Rd, Rawalpindi",    "items": ["desk lamp", "chair mat"], "refunded_amount": 0},
+    "O1008": {"customer_id": "C4", "status": "processing", "total": 90.0,  "address": "90 Mall Rd, Rawalpindi",    "items": ["speakers"],         "refunded_amount": 0},
+    "O1009": {"customer_id": "C5", "status": "shipped",    "total": 55.0,  "address": "21 Hayatabad, Peshawar",    "items": ["router"],           "refunded_amount": 0},
+    "O1010": {"customer_id": "C5", "status": "delivered",  "total": 35.0,  "address": "21 Hayatabad, Peshawar",    "items": ["phone stand"],      "refunded_amount": 0},
+    "O1011": {"customer_id": "C1", "status": "processing", "total": 70.0,  "address": "12 Park Rd, Lahore",        "items": ["mouse"],            "refunded_amount": 0},
+    "O1012": {"customer_id": "C2", "status": "delivered",  "total": 40.0,  "address": "7 Garden Town, Karachi",    "items": ["cable set"],        "refunded_amount": 0}
+  }
+}

@@ -1,0 +1,885 @@
+{
+  "meta": {
+    "seed": 2026,
+    "source_tasks": [
+      "A01",
+      "A02",
+      "A03",
+      "A04",
+      "A05",
+      "A06",
+      "A07",
+      "A08",
+      "A09",
+      "A10",
+      "B01",
+      "B02",
+      "B03",
+      "B04",
+      "B05",
+      "B06",
+      "B07",
+      "B08",
+      "B09",
+      "B10"
+    ],
+    "lens": [
+      2,
+      3,
+      4
+    ]
+  },
+  "chains": [
+    {
+      "id": "A05+A01",
+      "owner": "A",
+      "instruction": "You will receive 2 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 2 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHi, I'm Bilal Ahmed (customer C2). Please change the delivery address of order O1008 to 7 Garden Town, Karachi.\n\nMessage 2:\nHi, I'm Alice Khan (customer C1). Please cancel my order O1001, I ordered it by mistake.",
+      "assertions": [
+        {
+          "path": "orders.O1008.address",
+          "equals": "90 Mall Rd, Rawalpindi"
+        },
+        {
+          "path": "orders.O1001.status",
+          "equals": "cancelled"
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "A05",
+        "A01"
+      ]
+    },
+    {
+      "id": "B07+A02",
+      "owner": "B",
+      "instruction": "You will receive 2 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 2 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nI'm Omar Farooq (customer C4). Two things please: change the delivery address of my order O1008 to 14 Bahria Town Phase 4, Rawalpindi, and refund 50 on my delivered order O1007 because the chair mat arrived creased.\n\nMessage 2:\nHello, this is Bilal Ahmed (customer C2). I moved flats, so please change the delivery address of my order O1003 to 15 Clifton Block 4, Karachi.",
+      "assertions": [
+        {
+          "path": "orders.O1008.address",
+          "equals": "14 Bahria Town Phase 4, Rawalpindi"
+        },
+        {
+          "path": "orders.O1007.refunded_amount",
+          "equals": 50
+        },
+        {
+          "path": "orders.O1003.address",
+          "equals": "15 Clifton Block 4, Karachi"
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B07",
+        "A02"
+      ]
+    },
+    {
+      "id": "A08+A04",
+      "owner": "A",
+      "instruction": "You will receive 2 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 2 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHello, Bilal Ahmed (customer C2) again. The cable set from order O1012 stopped working after a week. Please refund the full amount I paid for that order.\n\nMessage 2:\nI'm Alice Khan (customer C1). Two things please: change the delivery address of order O1011 to 45 Gulberg III, Lahore, and refund 30 on my delivered order O1002 because a key on the keyboard is stuck.",
+      "assertions": [
+        {
+          "path": "orders.O1012.refunded_amount",
+          "equals": 40
+        },
+        {
+          "path": "orders.O1011.address",
+          "equals": "45 Gulberg III, Lahore"
+        },
+        {
+          "path": "orders.O1002.refunded_amount",
+          "equals": 30
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "A08",
+        "A04"
+      ]
+    },
+    {
+      "id": "B10+A03",
+      "owner": "B",
+      "instruction": "You will receive 2 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 2 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHi, Omar Farooq (customer C4). The desk lamp in my delivered order O1007 is not working. I would like a refund of 110 on that order, please.\n\nMessage 2:\nHi, Sana Malik here (customer C3). The webcam from order O1005 arrived with a scratched lens. Please refund 20 on that order.",
+      "assertions": [
+        {
+          "path": "orders.O1007.refunded_amount",
+          "equals": 0
+        },
+        {
+          "path": "orders.O1005.refunded_amount",
+          "equals": 20
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B10",
+        "A03"
+      ]
+    },
+    {
+      "id": "B04+A07",
+      "owner": "B",
+      "instruction": "You will receive 2 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 2 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nI'm Hira Shah (customer C5). Please change the delivery address of my order O1009 to 8 Satellite Town, Peshawar.\n\nMessage 2:\nI'm Omar Farooq (customer C4). The lamp and chair mat in order O1007 were not what I expected. I want the full 150 refunded on that order, please.",
+      "assertions": [
+        {
+          "path": "orders.O1009.address",
+          "equals": "21 Hayatabad, Peshawar"
+        },
+        {
+          "path": "orders.O1007.refunded_amount",
+          "equals": 0
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B04",
+        "A07"
+      ],
+      "refusal": true
+    },
+    {
+      "id": "B03+A06",
+      "owner": "B",
+      "instruction": "You will receive 2 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 2 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHi, Hira Shah here (customer C5). The phone stand from my delivered order O1010 has a chipped corner. Could you refund 15 on that order?\n\nMessage 2:\nHi, I'm Hira Shah, customer C5. Please cancel order O1006 for me.",
+      "assertions": [
+        {
+          "path": "orders.O1010.refunded_amount",
+          "equals": 15
+        },
+        {
+          "path": "orders.O1006.status",
+          "equals": "processing"
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B03",
+        "A06"
+      ]
+    },
+    {
+      "id": "B06+A10",
+      "owner": "B",
+      "instruction": "You will receive 2 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 2 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHi, Sana Malik (customer C3). My webcam from order O1005 stopped working, and I also had to pay for return shipping. Please refund 75 on that order.\n\nMessage 2:\nI'm Hira Shah (customer C5). Please refund the full amount for my delivered order O1010, and also cancel my order O1009 because I no longer need the router.",
+      "assertions": [
+        {
+          "path": "orders.O1005.refunded_amount",
+          "equals": 0
+        },
+        {
+          "path": "orders.O1010.refunded_amount",
+          "equals": 35
+        },
+        {
+          "path": "orders.O1009.status",
+          "equals": "shipped"
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B06",
+        "A10"
+      ]
+    },
+    {
+      "id": "B08+B09",
+      "owner": "B",
+      "instruction": "You will receive 2 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 2 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHi, Bilal Ahmed (customer C2) here. First, cancel my order O1003, I don't need the mouse pad anymore. Second, my cable set from order O1012 arrived with a bent plug and a missing adapter: please refund 10 for the plug and another 15 for the adapter, both on order O1012.\n\nMessage 2:\nHello, Alice Khan (customer C1). Please cancel my order O1001, I ordered it twice. Also change the delivery address of my order O1002 to 30 Model Town, Lahore.",
+      "assertions": [
+        {
+          "path": "orders.O1003.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1012.refunded_amount",
+          "equals": 25
+        },
+        {
+          "path": "orders.O1001.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1002.address",
+          "equals": "12 Park Rd, Lahore"
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B08",
+        "B09"
+      ]
+    },
+    {
+      "id": "A09+B01",
+      "owner": "A",
+      "instruction": "You will receive 2 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 2 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nI'm Omar Farooq (customer C4). I placed orders O1007 and O1008 last week. Please cancel O1008, the speakers were a duplicate purchase. Leave O1007 alone, I'm keeping that one.\n\nMessage 2:\nHi, this is Alice Khan (customer C1). I found the same mouse cheaper elsewhere, so please cancel my order O1011.",
+      "assertions": [
+        {
+          "path": "orders.O1008.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1007.status",
+          "equals": "delivered"
+        },
+        {
+          "path": "orders.O1011.status",
+          "equals": "cancelled"
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "A09",
+        "B01"
+      ]
+    },
+    {
+      "id": "B05+B02",
+      "owner": "B",
+      "instruction": "You will receive 2 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 2 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHello, I'm Bilal Ahmed (customer C2). The keyboard in order O1002 is faulty, please refund 30 on that order.\n\nMessage 2:\nHello, I'm Sana Malik (customer C3). I'm moving to a new office, so please change the delivery address of my order O1006 to 5 Blue Area, Islamabad.",
+      "assertions": [
+        {
+          "path": "orders.O1002.refunded_amount",
+          "equals": 0
+        },
+        {
+          "path": "orders.O1006.address",
+          "equals": "5 Blue Area, Islamabad"
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B05",
+        "B02"
+      ]
+    },
+    {
+      "id": "A09+A01+A02",
+      "owner": "A",
+      "instruction": "You will receive 3 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 3 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nI'm Omar Farooq (customer C4). I placed orders O1007 and O1008 last week. Please cancel O1008, the speakers were a duplicate purchase. Leave O1007 alone, I'm keeping that one.\n\nMessage 2:\nHi, I'm Alice Khan (customer C1). Please cancel my order O1001, I ordered it by mistake.\n\nMessage 3:\nHello, this is Bilal Ahmed (customer C2). I moved flats, so please change the delivery address of my order O1003 to 15 Clifton Block 4, Karachi.",
+      "assertions": [
+        {
+          "path": "orders.O1008.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1007.status",
+          "equals": "delivered"
+        },
+        {
+          "path": "orders.O1001.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1003.address",
+          "equals": "15 Clifton Block 4, Karachi"
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "A09",
+        "A01",
+        "A02"
+      ]
+    },
+    {
+      "id": "A04+A08+B06",
+      "owner": "A",
+      "instruction": "You will receive 3 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 3 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nI'm Alice Khan (customer C1). Two things please: change the delivery address of order O1011 to 45 Gulberg III, Lahore, and refund 30 on my delivered order O1002 because a key on the keyboard is stuck.\n\nMessage 2:\nHello, Bilal Ahmed (customer C2) again. The cable set from order O1012 stopped working after a week. Please refund the full amount I paid for that order.\n\nMessage 3:\nHi, Sana Malik (customer C3). My webcam from order O1005 stopped working, and I also had to pay for return shipping. Please refund 75 on that order.",
+      "assertions": [
+        {
+          "path": "orders.O1011.address",
+          "equals": "45 Gulberg III, Lahore"
+        },
+        {
+          "path": "orders.O1002.refunded_amount",
+          "equals": 30
+        },
+        {
+          "path": "orders.O1012.refunded_amount",
+          "equals": 40
+        },
+        {
+          "path": "orders.O1005.refunded_amount",
+          "equals": 0
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "A04",
+        "A08",
+        "B06"
+      ]
+    },
+    {
+      "id": "A03+B03+B04",
+      "owner": "A",
+      "instruction": "You will receive 3 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 3 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHi, Sana Malik here (customer C3). The webcam from order O1005 arrived with a scratched lens. Please refund 20 on that order.\n\nMessage 2:\nHi, Hira Shah here (customer C5). The phone stand from my delivered order O1010 has a chipped corner. Could you refund 15 on that order?\n\nMessage 3:\nI'm Hira Shah (customer C5). Please change the delivery address of my order O1009 to 8 Satellite Town, Peshawar.",
+      "assertions": [
+        {
+          "path": "orders.O1005.refunded_amount",
+          "equals": 20
+        },
+        {
+          "path": "orders.O1010.refunded_amount",
+          "equals": 15
+        },
+        {
+          "path": "orders.O1009.address",
+          "equals": "21 Hayatabad, Peshawar"
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "A03",
+        "B03",
+        "B04"
+      ]
+    },
+    {
+      "id": "B09+A06+B07",
+      "owner": "B",
+      "instruction": "You will receive 3 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 3 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHello, Alice Khan (customer C1). Please cancel my order O1001, I ordered it twice. Also change the delivery address of my order O1002 to 30 Model Town, Lahore.\n\nMessage 2:\nHi, I'm Hira Shah, customer C5. Please cancel order O1006 for me.\n\nMessage 3:\nI'm Omar Farooq (customer C4). Two things please: change the delivery address of my order O1008 to 14 Bahria Town Phase 4, Rawalpindi, and refund 50 on my delivered order O1007 because the chair mat arrived creased.",
+      "assertions": [
+        {
+          "path": "orders.O1001.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1002.address",
+          "equals": "12 Park Rd, Lahore"
+        },
+        {
+          "path": "orders.O1006.status",
+          "equals": "processing"
+        },
+        {
+          "path": "orders.O1008.address",
+          "equals": "14 Bahria Town Phase 4, Rawalpindi"
+        },
+        {
+          "path": "orders.O1007.refunded_amount",
+          "equals": 50
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B09",
+        "A06",
+        "B07"
+      ]
+    },
+    {
+      "id": "B10+B02+B05",
+      "owner": "B",
+      "instruction": "You will receive 3 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 3 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHi, Omar Farooq (customer C4). The desk lamp in my delivered order O1007 is not working. I would like a refund of 110 on that order, please.\n\nMessage 2:\nHello, I'm Sana Malik (customer C3). I'm moving to a new office, so please change the delivery address of my order O1006 to 5 Blue Area, Islamabad.\n\nMessage 3:\nHello, I'm Bilal Ahmed (customer C2). The keyboard in order O1002 is faulty, please refund 30 on that order.",
+      "assertions": [
+        {
+          "path": "orders.O1007.refunded_amount",
+          "equals": 0
+        },
+        {
+          "path": "orders.O1006.address",
+          "equals": "5 Blue Area, Islamabad"
+        },
+        {
+          "path": "orders.O1002.refunded_amount",
+          "equals": 0
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B10",
+        "B02",
+        "B05"
+      ]
+    },
+    {
+      "id": "B01+B08+A07",
+      "owner": "B",
+      "instruction": "You will receive 3 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 3 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHi, this is Alice Khan (customer C1). I found the same mouse cheaper elsewhere, so please cancel my order O1011.\n\nMessage 2:\nHi, Bilal Ahmed (customer C2) here. First, cancel my order O1003, I don't need the mouse pad anymore. Second, my cable set from order O1012 arrived with a bent plug and a missing adapter: please refund 10 for the plug and another 15 for the adapter, both on order O1012.\n\nMessage 3:\nI'm Omar Farooq (customer C4). The lamp and chair mat in order O1007 were not what I expected. I want the full 150 refunded on that order, please.",
+      "assertions": [
+        {
+          "path": "orders.O1011.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1003.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1012.refunded_amount",
+          "equals": 25
+        },
+        {
+          "path": "orders.O1007.refunded_amount",
+          "equals": 0
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B01",
+        "B08",
+        "A07"
+      ]
+    },
+    {
+      "id": "B08+A05+A10",
+      "owner": "B",
+      "instruction": "You will receive 3 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 3 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHi, Bilal Ahmed (customer C2) here. First, cancel my order O1003, I don't need the mouse pad anymore. Second, my cable set from order O1012 arrived with a bent plug and a missing adapter: please refund 10 for the plug and another 15 for the adapter, both on order O1012.\n\nMessage 2:\nHi, I'm Bilal Ahmed (customer C2). Please change the delivery address of order O1008 to 7 Garden Town, Karachi.\n\nMessage 3:\nI'm Hira Shah (customer C5). Please refund the full amount for my delivered order O1010, and also cancel my order O1009 because I no longer need the router.",
+      "assertions": [
+        {
+          "path": "orders.O1003.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1012.refunded_amount",
+          "equals": 25
+        },
+        {
+          "path": "orders.O1008.address",
+          "equals": "90 Mall Rd, Rawalpindi"
+        },
+        {
+          "path": "orders.O1010.refunded_amount",
+          "equals": 35
+        },
+        {
+          "path": "orders.O1009.status",
+          "equals": "shipped"
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B08",
+        "A05",
+        "A10"
+      ]
+    },
+    {
+      "id": "A08+A02+B10",
+      "owner": "A",
+      "instruction": "You will receive 3 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 3 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHello, Bilal Ahmed (customer C2) again. The cable set from order O1012 stopped working after a week. Please refund the full amount I paid for that order.\n\nMessage 2:\nHello, this is Bilal Ahmed (customer C2). I moved flats, so please change the delivery address of my order O1003 to 15 Clifton Block 4, Karachi.\n\nMessage 3:\nHi, Omar Farooq (customer C4). The desk lamp in my delivered order O1007 is not working. I would like a refund of 110 on that order, please.",
+      "assertions": [
+        {
+          "path": "orders.O1012.refunded_amount",
+          "equals": 40
+        },
+        {
+          "path": "orders.O1003.address",
+          "equals": "15 Clifton Block 4, Karachi"
+        },
+        {
+          "path": "orders.O1007.refunded_amount",
+          "equals": 0
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "A08",
+        "A02",
+        "B10"
+      ]
+    },
+    {
+      "id": "A03+B01+B03",
+      "owner": "A",
+      "instruction": "You will receive 3 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 3 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHi, Sana Malik here (customer C3). The webcam from order O1005 arrived with a scratched lens. Please refund 20 on that order.\n\nMessage 2:\nHi, this is Alice Khan (customer C1). I found the same mouse cheaper elsewhere, so please cancel my order O1011.\n\nMessage 3:\nHi, Hira Shah here (customer C5). The phone stand from my delivered order O1010 has a chipped corner. Could you refund 15 on that order?",
+      "assertions": [
+        {
+          "path": "orders.O1005.refunded_amount",
+          "equals": 20
+        },
+        {
+          "path": "orders.O1011.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1010.refunded_amount",
+          "equals": 15
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "A03",
+        "B01",
+        "B03"
+      ]
+    },
+    {
+      "id": "B02+B04+A01",
+      "owner": "B",
+      "instruction": "You will receive 3 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 3 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHello, I'm Sana Malik (customer C3). I'm moving to a new office, so please change the delivery address of my order O1006 to 5 Blue Area, Islamabad.\n\nMessage 2:\nI'm Hira Shah (customer C5). Please change the delivery address of my order O1009 to 8 Satellite Town, Peshawar.\n\nMessage 3:\nHi, I'm Alice Khan (customer C1). Please cancel my order O1001, I ordered it by mistake.",
+      "assertions": [
+        {
+          "path": "orders.O1006.address",
+          "equals": "5 Blue Area, Islamabad"
+        },
+        {
+          "path": "orders.O1009.address",
+          "equals": "21 Hayatabad, Peshawar"
+        },
+        {
+          "path": "orders.O1001.status",
+          "equals": "cancelled"
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B02",
+        "B04",
+        "A01"
+      ]
+    },
+    {
+      "id": "A09+B06+B05+A10",
+      "owner": "A",
+      "instruction": "You will receive 4 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 4 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nI'm Omar Farooq (customer C4). I placed orders O1007 and O1008 last week. Please cancel O1008, the speakers were a duplicate purchase. Leave O1007 alone, I'm keeping that one.\n\nMessage 2:\nHi, Sana Malik (customer C3). My webcam from order O1005 stopped working, and I also had to pay for return shipping. Please refund 75 on that order.\n\nMessage 3:\nHello, I'm Bilal Ahmed (customer C2). The keyboard in order O1002 is faulty, please refund 30 on that order.\n\nMessage 4:\nI'm Hira Shah (customer C5). Please refund the full amount for my delivered order O1010, and also cancel my order O1009 because I no longer need the router.",
+      "assertions": [
+        {
+          "path": "orders.O1008.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1007.status",
+          "equals": "delivered"
+        },
+        {
+          "path": "orders.O1005.refunded_amount",
+          "equals": 0
+        },
+        {
+          "path": "orders.O1002.refunded_amount",
+          "equals": 0
+        },
+        {
+          "path": "orders.O1010.refunded_amount",
+          "equals": 35
+        },
+        {
+          "path": "orders.O1009.status",
+          "equals": "shipped"
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "A09",
+        "B06",
+        "B05",
+        "A10"
+      ]
+    },
+    {
+      "id": "A06+B09+B03+A05",
+      "owner": "A",
+      "instruction": "You will receive 4 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 4 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHi, I'm Hira Shah, customer C5. Please cancel order O1006 for me.\n\nMessage 2:\nHello, Alice Khan (customer C1). Please cancel my order O1001, I ordered it twice. Also change the delivery address of my order O1002 to 30 Model Town, Lahore.\n\nMessage 3:\nHi, Hira Shah here (customer C5). The phone stand from my delivered order O1010 has a chipped corner. Could you refund 15 on that order?\n\nMessage 4:\nHi, I'm Bilal Ahmed (customer C2). Please change the delivery address of order O1008 to 7 Garden Town, Karachi.",
+      "assertions": [
+        {
+          "path": "orders.O1006.status",
+          "equals": "processing"
+        },
+        {
+          "path": "orders.O1001.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1002.address",
+          "equals": "12 Park Rd, Lahore"
+        },
+        {
+          "path": "orders.O1010.refunded_amount",
+          "equals": 15
+        },
+        {
+          "path": "orders.O1008.address",
+          "equals": "90 Mall Rd, Rawalpindi"
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "A06",
+        "B09",
+        "B03",
+        "A05"
+      ]
+    },
+    {
+      "id": "A06+A02+B07+A04",
+      "owner": "A",
+      "instruction": "You will receive 4 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 4 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHi, I'm Hira Shah, customer C5. Please cancel order O1006 for me.\n\nMessage 2:\nHello, this is Bilal Ahmed (customer C2). I moved flats, so please change the delivery address of my order O1003 to 15 Clifton Block 4, Karachi.\n\nMessage 3:\nI'm Omar Farooq (customer C4). Two things please: change the delivery address of my order O1008 to 14 Bahria Town Phase 4, Rawalpindi, and refund 50 on my delivered order O1007 because the chair mat arrived creased.\n\nMessage 4:\nI'm Alice Khan (customer C1). Two things please: change the delivery address of order O1011 to 45 Gulberg III, Lahore, and refund 30 on my delivered order O1002 because a key on the keyboard is stuck.",
+      "assertions": [
+        {
+          "path": "orders.O1006.status",
+          "equals": "processing"
+        },
+        {
+          "path": "orders.O1003.address",
+          "equals": "15 Clifton Block 4, Karachi"
+        },
+        {
+          "path": "orders.O1008.address",
+          "equals": "14 Bahria Town Phase 4, Rawalpindi"
+        },
+        {
+          "path": "orders.O1007.refunded_amount",
+          "equals": 50
+        },
+        {
+          "path": "orders.O1011.address",
+          "equals": "45 Gulberg III, Lahore"
+        },
+        {
+          "path": "orders.O1002.refunded_amount",
+          "equals": 30
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "A06",
+        "A02",
+        "B07",
+        "A04"
+      ]
+    },
+    {
+      "id": "B02+A07+A10+B05",
+      "owner": "B",
+      "instruction": "You will receive 4 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 4 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHello, I'm Sana Malik (customer C3). I'm moving to a new office, so please change the delivery address of my order O1006 to 5 Blue Area, Islamabad.\n\nMessage 2:\nI'm Omar Farooq (customer C4). The lamp and chair mat in order O1007 were not what I expected. I want the full 150 refunded on that order, please.\n\nMessage 3:\nI'm Hira Shah (customer C5). Please refund the full amount for my delivered order O1010, and also cancel my order O1009 because I no longer need the router.\n\nMessage 4:\nHello, I'm Bilal Ahmed (customer C2). The keyboard in order O1002 is faulty, please refund 30 on that order.",
+      "assertions": [
+        {
+          "path": "orders.O1006.address",
+          "equals": "5 Blue Area, Islamabad"
+        },
+        {
+          "path": "orders.O1007.refunded_amount",
+          "equals": 0
+        },
+        {
+          "path": "orders.O1010.refunded_amount",
+          "equals": 35
+        },
+        {
+          "path": "orders.O1009.status",
+          "equals": "shipped"
+        },
+        {
+          "path": "orders.O1002.refunded_amount",
+          "equals": 0
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B02",
+        "A07",
+        "A10",
+        "B05"
+      ]
+    },
+    {
+      "id": "A08+B01+A05+B06",
+      "owner": "A",
+      "instruction": "You will receive 4 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 4 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHello, Bilal Ahmed (customer C2) again. The cable set from order O1012 stopped working after a week. Please refund the full amount I paid for that order.\n\nMessage 2:\nHi, this is Alice Khan (customer C1). I found the same mouse cheaper elsewhere, so please cancel my order O1011.\n\nMessage 3:\nHi, I'm Bilal Ahmed (customer C2). Please change the delivery address of order O1008 to 7 Garden Town, Karachi.\n\nMessage 4:\nHi, Sana Malik (customer C3). My webcam from order O1005 stopped working, and I also had to pay for return shipping. Please refund 75 on that order.",
+      "assertions": [
+        {
+          "path": "orders.O1012.refunded_amount",
+          "equals": 40
+        },
+        {
+          "path": "orders.O1011.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1008.address",
+          "equals": "90 Mall Rd, Rawalpindi"
+        },
+        {
+          "path": "orders.O1005.refunded_amount",
+          "equals": 0
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "A08",
+        "B01",
+        "A05",
+        "B06"
+      ]
+    },
+    {
+      "id": "A03+A07+A01+A04",
+      "owner": "A",
+      "instruction": "You will receive 4 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 4 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHi, Sana Malik here (customer C3). The webcam from order O1005 arrived with a scratched lens. Please refund 20 on that order.\n\nMessage 2:\nI'm Omar Farooq (customer C4). The lamp and chair mat in order O1007 were not what I expected. I want the full 150 refunded on that order, please.\n\nMessage 3:\nHi, I'm Alice Khan (customer C1). Please cancel my order O1001, I ordered it by mistake.\n\nMessage 4:\nI'm Alice Khan (customer C1). Two things please: change the delivery address of order O1011 to 45 Gulberg III, Lahore, and refund 30 on my delivered order O1002 because a key on the keyboard is stuck.",
+      "assertions": [
+        {
+          "path": "orders.O1005.refunded_amount",
+          "equals": 20
+        },
+        {
+          "path": "orders.O1007.refunded_amount",
+          "equals": 0
+        },
+        {
+          "path": "orders.O1001.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1011.address",
+          "equals": "45 Gulberg III, Lahore"
+        },
+        {
+          "path": "orders.O1002.refunded_amount",
+          "equals": 30
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "A03",
+        "A07",
+        "A01",
+        "A04"
+      ]
+    },
+    {
+      "id": "B04+B08+B10+B09",
+      "owner": "B",
+      "instruction": "You will receive 4 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 4 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nI'm Hira Shah (customer C5). Please change the delivery address of my order O1009 to 8 Satellite Town, Peshawar.\n\nMessage 2:\nHi, Bilal Ahmed (customer C2) here. First, cancel my order O1003, I don't need the mouse pad anymore. Second, my cable set from order O1012 arrived with a bent plug and a missing adapter: please refund 10 for the plug and another 15 for the adapter, both on order O1012.\n\nMessage 3:\nHi, Omar Farooq (customer C4). The desk lamp in my delivered order O1007 is not working. I would like a refund of 110 on that order, please.\n\nMessage 4:\nHello, Alice Khan (customer C1). Please cancel my order O1001, I ordered it twice. Also change the delivery address of my order O1002 to 30 Model Town, Lahore.",
+      "assertions": [
+        {
+          "path": "orders.O1009.address",
+          "equals": "21 Hayatabad, Peshawar"
+        },
+        {
+          "path": "orders.O1003.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1012.refunded_amount",
+          "equals": 25
+        },
+        {
+          "path": "orders.O1007.refunded_amount",
+          "equals": 0
+        },
+        {
+          "path": "orders.O1001.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1002.address",
+          "equals": "12 Park Rd, Lahore"
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B04",
+        "B08",
+        "B10",
+        "B09"
+      ]
+    },
+    {
+      "id": "B02+B06+B09+A09",
+      "owner": "B",
+      "instruction": "You will receive 4 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 4 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHello, I'm Sana Malik (customer C3). I'm moving to a new office, so please change the delivery address of my order O1006 to 5 Blue Area, Islamabad.\n\nMessage 2:\nHi, Sana Malik (customer C3). My webcam from order O1005 stopped working, and I also had to pay for return shipping. Please refund 75 on that order.\n\nMessage 3:\nHello, Alice Khan (customer C1). Please cancel my order O1001, I ordered it twice. Also change the delivery address of my order O1002 to 30 Model Town, Lahore.\n\nMessage 4:\nI'm Omar Farooq (customer C4). I placed orders O1007 and O1008 last week. Please cancel O1008, the speakers were a duplicate purchase. Leave O1007 alone, I'm keeping that one.",
+      "assertions": [
+        {
+          "path": "orders.O1006.address",
+          "equals": "5 Blue Area, Islamabad"
+        },
+        {
+          "path": "orders.O1005.refunded_amount",
+          "equals": 0
+        },
+        {
+          "path": "orders.O1001.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1002.address",
+          "equals": "12 Park Rd, Lahore"
+        },
+        {
+          "path": "orders.O1008.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1007.status",
+          "equals": "delivered"
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B02",
+        "B06",
+        "B09",
+        "A09"
+      ]
+    },
+    {
+      "id": "B04+A02+B07+A08",
+      "owner": "B",
+      "instruction": "You will receive 4 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 4 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nI'm Hira Shah (customer C5). Please change the delivery address of my order O1009 to 8 Satellite Town, Peshawar.\n\nMessage 2:\nHello, this is Bilal Ahmed (customer C2). I moved flats, so please change the delivery address of my order O1003 to 15 Clifton Block 4, Karachi.\n\nMessage 3:\nI'm Omar Farooq (customer C4). Two things please: change the delivery address of my order O1008 to 14 Bahria Town Phase 4, Rawalpindi, and refund 50 on my delivered order O1007 because the chair mat arrived creased.\n\nMessage 4:\nHello, Bilal Ahmed (customer C2) again. The cable set from order O1012 stopped working after a week. Please refund the full amount I paid for that order.",
+      "assertions": [
+        {
+          "path": "orders.O1009.address",
+          "equals": "21 Hayatabad, Peshawar"
+        },
+        {
+          "path": "orders.O1003.address",
+          "equals": "15 Clifton Block 4, Karachi"
+        },
+        {
+          "path": "orders.O1008.address",
+          "equals": "14 Bahria Town Phase 4, Rawalpindi"
+        },
+        {
+          "path": "orders.O1007.refunded_amount",
+          "equals": 50
+        },
+        {
+          "path": "orders.O1012.refunded_amount",
+          "equals": 40
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B04",
+        "A02",
+        "B07",
+        "A08"
+      ]
+    },
+    {
+      "id": "B01+A07+B03+A03",
+      "owner": "B",
+      "instruction": "You will receive 4 separate customer messages in a row. Handle every message, one after the other, following the policies. If a message must be refused, explain the refusal in your final reply but KEEP GOING with the remaining messages: do not call finish until you have dealt with all 4 messages. Then finish with one reply that covers all of them.\n\nMessage 1:\nHi, this is Alice Khan (customer C1). I found the same mouse cheaper elsewhere, so please cancel my order O1011.\n\nMessage 2:\nI'm Omar Farooq (customer C4). The lamp and chair mat in order O1007 were not what I expected. I want the full 150 refunded on that order, please.\n\nMessage 3:\nHi, Hira Shah here (customer C5). The phone stand from my delivered order O1010 has a chipped corner. Could you refund 15 on that order?\n\nMessage 4:\nHi, Sana Malik here (customer C3). The webcam from order O1005 arrived with a scratched lens. Please refund 20 on that order.",
+      "assertions": [
+        {
+          "path": "orders.O1011.status",
+          "equals": "cancelled"
+        },
+        {
+          "path": "orders.O1007.refunded_amount",
+          "equals": 0
+        },
+        {
+          "path": "orders.O1010.refunded_amount",
+          "equals": 15
+        },
+        {
+          "path": "orders.O1005.refunded_amount",
+          "equals": 20
+        }
+      ],
+      "paraphrases": [],
+      "chain": [
+        "B01",
+        "A07",
+        "B03",
+        "A03"
+      ]
+    }
+  ]
+}

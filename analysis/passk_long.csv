@@ -1,0 +1,147 @@
+agent,model,condition,fault_rate,chain_len,metric,k,estimate,ci_lo,ci_hi,ci_method,units,clusters,trials,family,cond
+plan_execute,gpt-oss-120b,chain,0.0,4,pass@1,1,0.75,0.3006360524426366,0.9544139373553637,wilson(n=4 clusters),4,4,2,pass@k,chain L4
+plan_execute,gpt-oss-120b,chain,0.0,4,pass@2,2,1.0,0.5100999795960008,1.0,wilson(n=4 clusters),4,4,2,pass@k,chain L4
+plan_execute,gpt-oss-120b,chain,0.0,4,pass^1,1,0.75,0.3006360524426366,0.9544139373553637,wilson(n=4 clusters),4,4,2,pass^k,chain L4
+plan_execute,gpt-oss-120b,chain,0.0,4,pass^2,2,0.5,0.15003570882017148,0.8499642911798285,wilson(n=4 clusters),4,4,2,pass^k,chain L4
+plan_execute,gpt-oss-120b,clean,0.0,1,pass@1,1,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,clean
+plan_execute,gpt-oss-120b,clean,0.0,1,pass@2,2,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,clean
+plan_execute,gpt-oss-120b,clean,0.0,1,pass@3,3,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,clean
+plan_execute,gpt-oss-120b,clean,0.0,1,pass@4,4,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,clean
+plan_execute,gpt-oss-120b,clean,0.0,1,pass@5,5,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,clean
+plan_execute,gpt-oss-120b,clean,0.0,1,pass^1,1,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass^k,clean
+plan_execute,gpt-oss-120b,clean,0.0,1,pass^2,2,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass^k,clean
+plan_execute,gpt-oss-120b,clean,0.0,1,pass^3,3,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass^k,clean
+plan_execute,gpt-oss-120b,clean,0.0,1,pass^4,4,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass^k,clean
+plan_execute,gpt-oss-120b,clean,0.0,1,pass^5,5,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass^k,clean
+plan_execute,gpt-oss-20b,chain,0.0,4,pass@1,1,0.0,0.0,0.6576280471103807,wilson(n=2 clusters),2,2,1,pass@k,chain L4
+plan_execute,gpt-oss-20b,chain,0.0,4,pass^1,1,0.0,0.0,0.6576280471103807,wilson(n=2 clusters),2,2,1,pass^k,chain L4
+plan_execute,gpt-oss-20b,clean,0.0,1,pass@1,1,0.9800000000000001,0.9400000000000001,1.0,cluster-bootstrap,10,10,5,pass@k,clean
+plan_execute,gpt-oss-20b,clean,0.0,1,pass@2,2,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,clean
+plan_execute,gpt-oss-20b,clean,0.0,1,pass@3,3,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,clean
+plan_execute,gpt-oss-20b,clean,0.0,1,pass@4,4,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,clean
+plan_execute,gpt-oss-20b,clean,0.0,1,pass@5,5,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,clean
+plan_execute,gpt-oss-20b,clean,0.0,1,pass^1,1,0.9800000000000001,0.9400000000000001,1.0,cluster-bootstrap,10,10,5,pass^k,clean
+plan_execute,gpt-oss-20b,clean,0.0,1,pass^2,2,0.96,0.8799999999999999,1.0,cluster-bootstrap,10,10,5,pass^k,clean
+plan_execute,gpt-oss-20b,clean,0.0,1,pass^3,3,0.9400000000000001,0.82,1.0,cluster-bootstrap,10,10,5,pass^k,clean
+plan_execute,gpt-oss-20b,clean,0.0,1,pass^4,4,0.9199999999999999,0.76,1.0,cluster-bootstrap,10,10,5,pass^k,clean
+plan_execute,gpt-oss-20b,clean,0.0,1,pass^5,5,0.9,0.7,1.0,cluster-bootstrap,10,10,5,pass^k,clean
+react,gpt-oss-120b,chain,0.0,2,pass@1,1,0.9,0.41682695829873984,0.9912530253780607,wilson(n=4 clusters),4,4,5,pass@k,chain L2
+react,gpt-oss-120b,chain,0.0,2,pass@2,2,1.0,0.5100999795960008,1.0,wilson(n=4 clusters),4,4,5,pass@k,chain L2
+react,gpt-oss-120b,chain,0.0,2,pass@3,3,1.0,0.5100999795960008,1.0,wilson(n=4 clusters),4,4,5,pass@k,chain L2
+react,gpt-oss-120b,chain,0.0,2,pass@4,4,1.0,0.5100999795960008,1.0,wilson(n=4 clusters),4,4,5,pass@k,chain L2
+react,gpt-oss-120b,chain,0.0,2,pass@5,5,1.0,0.5100999795960008,1.0,wilson(n=4 clusters),4,4,5,pass@k,chain L2
+react,gpt-oss-120b,chain,0.0,2,pass^1,1,0.9,0.41682695829873984,0.9912530253780607,wilson(n=4 clusters),4,4,5,pass^k,chain L2
+react,gpt-oss-120b,chain,0.0,2,pass^2,2,0.8,0.3368272330371128,0.9692327547204876,wilson(n=4 clusters),4,4,5,pass^k,chain L2
+react,gpt-oss-120b,chain,0.0,2,pass^3,3,0.7,0.26664097826229105,0.9373990135761093,wilson(n=4 clusters),4,4,5,pass^k,chain L2
+react,gpt-oss-120b,chain,0.0,2,pass^4,4,0.6,0.2046344428220036,0.8973855530971967,wilson(n=4 clusters),4,4,5,pass^k,chain L2
+react,gpt-oss-120b,chain,0.0,2,pass^5,5,0.5,0.15003570882017148,0.8499642911798285,wilson(n=4 clusters),4,4,5,pass^k,chain L2
+react,gpt-oss-120b,chain,0.0,4,pass@1,1,0.04999999999999999,0.002367967267168314,0.5385420510964309,wilson(n=4 clusters),4,4,5,pass@k,chain L4
+react,gpt-oss-120b,chain,0.0,4,pass@2,2,0.1,0.008746974621939185,0.5831730417012602,wilson(n=4 clusters),4,4,5,pass@k,chain L4
+react,gpt-oss-120b,chain,0.0,4,pass@3,3,0.15,0.01837673406652446,0.624553280216275,wilson(n=4 clusters),4,4,5,pass@k,chain L4
+react,gpt-oss-120b,chain,0.0,4,pass@4,4,0.2,0.0307672452795123,0.6631727669628871,wilson(n=4 clusters),4,4,5,pass@k,chain L4
+react,gpt-oss-120b,chain,0.0,4,pass@5,5,0.25,0.045586062644636216,0.6993639475573634,wilson(n=4 clusters),4,4,5,pass@k,chain L4
+react,gpt-oss-120b,chain,0.0,4,pass^1,1,0.05,0.002367967267168314,0.5385420510964309,wilson(n=4 clusters),4,4,5,pass^k,chain L4
+react,gpt-oss-120b,chain,0.0,4,pass^2,2,0.0,0.0,0.48990002040399916,wilson(n=4 clusters),4,4,5,pass^k,chain L4
+react,gpt-oss-120b,chain,0.0,4,pass^3,3,0.0,0.0,0.48990002040399916,wilson(n=4 clusters),4,4,5,pass^k,chain L4
+react,gpt-oss-120b,chain,0.0,4,pass^4,4,0.0,0.0,0.48990002040399916,wilson(n=4 clusters),4,4,5,pass^k,chain L4
+react,gpt-oss-120b,chain,0.0,4,pass^5,5,0.0,0.0,0.48990002040399916,wilson(n=4 clusters),4,4,5,pass^k,chain L4
+react,gpt-oss-120b,clean,0.0,1,pass@1,1,0.9933333333333334,0.98,1.0,cluster-bootstrap,30,30,5,pass@k,clean
+react,gpt-oss-120b,clean,0.0,1,pass@2,2,1.0,0.8864829086095221,1.0,wilson(n=30 clusters; bootstrap degenerate),30,30,5,pass@k,clean
+react,gpt-oss-120b,clean,0.0,1,pass@3,3,1.0,0.8864829086095221,1.0,wilson(n=30 clusters; bootstrap degenerate),30,30,5,pass@k,clean
+react,gpt-oss-120b,clean,0.0,1,pass@4,4,1.0,0.8864829086095221,1.0,wilson(n=30 clusters; bootstrap degenerate),30,30,5,pass@k,clean
+react,gpt-oss-120b,clean,0.0,1,pass@5,5,1.0,0.8864829086095221,1.0,wilson(n=30 clusters; bootstrap degenerate),30,30,5,pass@k,clean
+react,gpt-oss-120b,clean,0.0,1,pass^1,1,0.9933333333333334,0.98,1.0,cluster-bootstrap,30,30,5,pass^k,clean
+react,gpt-oss-120b,clean,0.0,1,pass^2,2,0.9866666666666667,0.9599999999999999,1.0,cluster-bootstrap,30,30,5,pass^k,clean
+react,gpt-oss-120b,clean,0.0,1,pass^3,3,0.98,0.94,1.0,cluster-bootstrap,30,30,5,pass^k,clean
+react,gpt-oss-120b,clean,0.0,1,pass^4,4,0.9733333333333333,0.9199999999999999,1.0,cluster-bootstrap,30,30,5,pass^k,clean
+react,gpt-oss-120b,clean,0.0,1,pass^5,5,0.9666666666666667,0.9,1.0,cluster-bootstrap,30,30,5,pass^k,clean
+react,gpt-oss-120b,fault,0.1,1,pass@1,1,0.96,0.8799999999999999,1.0,cluster-bootstrap,10,10,5,pass@k,fault 0.1
+react,gpt-oss-120b,fault,0.1,1,pass@2,2,0.99,0.97,1.0,cluster-bootstrap,10,10,5,pass@k,fault 0.1
+react,gpt-oss-120b,fault,0.1,1,pass@3,3,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,fault 0.1
+react,gpt-oss-120b,fault,0.1,1,pass@4,4,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,fault 0.1
+react,gpt-oss-120b,fault,0.1,1,pass@5,5,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,fault 0.1
+react,gpt-oss-120b,fault,0.1,1,pass^1,1,0.96,0.8799999999999999,1.0,cluster-bootstrap,10,10,5,pass^k,fault 0.1
+react,gpt-oss-120b,fault,0.1,1,pass^2,2,0.93,0.7899999999999999,1.0,cluster-bootstrap,10,10,5,pass^k,fault 0.1
+react,gpt-oss-120b,fault,0.1,1,pass^3,3,0.9099999999999999,0.73,1.0,cluster-bootstrap,10,10,5,pass^k,fault 0.1
+react,gpt-oss-120b,fault,0.1,1,pass^4,4,0.9,0.7,1.0,cluster-bootstrap,10,10,5,pass^k,fault 0.1
+react,gpt-oss-120b,fault,0.1,1,pass^5,5,0.9,0.7,1.0,cluster-bootstrap,10,10,5,pass^k,fault 0.1
+react,gpt-oss-120b,fault,0.2,1,pass@1,1,0.96,0.9,1.0,cluster-bootstrap,10,10,5,pass@k,fault 0.2
+react,gpt-oss-120b,fault,0.2,1,pass@2,2,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,fault 0.2
+react,gpt-oss-120b,fault,0.2,1,pass@3,3,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,fault 0.2
+react,gpt-oss-120b,fault,0.2,1,pass@4,4,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,fault 0.2
+react,gpt-oss-120b,fault,0.2,1,pass@5,5,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,fault 0.2
+react,gpt-oss-120b,fault,0.2,1,pass^1,1,0.96,0.9,1.0,cluster-bootstrap,10,10,5,pass^k,fault 0.2
+react,gpt-oss-120b,fault,0.2,1,pass^2,2,0.9199999999999999,0.8,1.0,cluster-bootstrap,10,10,5,pass^k,fault 0.2
+react,gpt-oss-120b,fault,0.2,1,pass^3,3,0.8800000000000001,0.7,1.0,cluster-bootstrap,10,10,5,pass^k,fault 0.2
+react,gpt-oss-120b,fault,0.2,1,pass^4,4,0.8400000000000001,0.6000000000000001,1.0,cluster-bootstrap,10,10,5,pass^k,fault 0.2
+react,gpt-oss-120b,fault,0.2,1,pass^5,5,0.8,0.5,1.0,cluster-bootstrap,10,10,5,pass^k,fault 0.2
+react,gpt-oss-120b,paraphrase,0.0,1,pass@1,1,0.9400000000000001,0.8400000000000001,1.0,cluster-bootstrap,20,10,5,pass@k,paraphrase
+react,gpt-oss-120b,paraphrase,0.0,1,pass@2,2,0.95,0.85,1.0,cluster-bootstrap,20,10,5,pass@k,paraphrase
+react,gpt-oss-120b,paraphrase,0.0,1,pass@3,3,0.95,0.85,1.0,cluster-bootstrap,20,10,5,pass@k,paraphrase
+react,gpt-oss-120b,paraphrase,0.0,1,pass@4,4,0.95,0.85,1.0,cluster-bootstrap,20,10,5,pass@k,paraphrase
+react,gpt-oss-120b,paraphrase,0.0,1,pass@5,5,0.95,0.85,1.0,cluster-bootstrap,20,10,5,pass@k,paraphrase
+react,gpt-oss-120b,paraphrase,0.0,1,pass^1,1,0.9400000000000001,0.8400000000000001,1.0,cluster-bootstrap,20,10,5,pass^k,paraphrase
+react,gpt-oss-120b,paraphrase,0.0,1,pass^2,2,0.93,0.8300000000000001,1.0,cluster-bootstrap,20,10,5,pass^k,paraphrase
+react,gpt-oss-120b,paraphrase,0.0,1,pass^3,3,0.9199999999999999,0.8097500000000001,1.0,cluster-bootstrap,20,10,5,pass^k,paraphrase
+react,gpt-oss-120b,paraphrase,0.0,1,pass^4,4,0.9099999999999999,0.78,1.0,cluster-bootstrap,20,10,5,pass^k,paraphrase
+react,gpt-oss-120b,paraphrase,0.0,1,pass^5,5,0.9,0.75,1.0,cluster-bootstrap,20,10,5,pass^k,paraphrase
+react,gpt-oss-20b,chain,0.0,2,pass@1,1,0.5,0.15003570882017148,0.8499642911798285,wilson(n=4 clusters),4,4,5,pass@k,chain L2
+react,gpt-oss-20b,chain,0.0,2,pass@2,2,0.5,0.15003570882017148,0.8499642911798285,wilson(n=4 clusters),4,4,5,pass@k,chain L2
+react,gpt-oss-20b,chain,0.0,2,pass@3,3,0.5,0.15003570882017148,0.8499642911798285,wilson(n=4 clusters),4,4,5,pass@k,chain L2
+react,gpt-oss-20b,chain,0.0,2,pass@4,4,0.5,0.15003570882017148,0.8499642911798285,wilson(n=4 clusters),4,4,5,pass@k,chain L2
+react,gpt-oss-20b,chain,0.0,2,pass@5,5,0.5,0.15003570882017148,0.8499642911798285,wilson(n=4 clusters),4,4,5,pass@k,chain L2
+react,gpt-oss-20b,chain,0.0,2,pass^1,1,0.5,0.15003570882017148,0.8499642911798285,wilson(n=4 clusters),4,4,5,pass^k,chain L2
+react,gpt-oss-20b,chain,0.0,2,pass^2,2,0.5,0.15003570882017148,0.8499642911798285,wilson(n=4 clusters),4,4,5,pass^k,chain L2
+react,gpt-oss-20b,chain,0.0,2,pass^3,3,0.5,0.15003570882017148,0.8499642911798285,wilson(n=4 clusters),4,4,5,pass^k,chain L2
+react,gpt-oss-20b,chain,0.0,2,pass^4,4,0.5,0.15003570882017148,0.8499642911798285,wilson(n=4 clusters),4,4,5,pass^k,chain L2
+react,gpt-oss-20b,chain,0.0,2,pass^5,5,0.5,0.15003570882017148,0.8499642911798285,wilson(n=4 clusters),4,4,5,pass^k,chain L2
+react,gpt-oss-20b,chain,0.0,4,pass@1,1,0.0,0.0,0.48990002040399916,wilson(n=4 clusters),4,4,5,pass@k,chain L4
+react,gpt-oss-20b,chain,0.0,4,pass@2,2,0.0,0.0,0.48990002040399916,wilson(n=4 clusters),4,4,5,pass@k,chain L4
+react,gpt-oss-20b,chain,0.0,4,pass@3,3,0.0,0.0,0.48990002040399916,wilson(n=4 clusters),4,4,5,pass@k,chain L4
+react,gpt-oss-20b,chain,0.0,4,pass@4,4,0.0,0.0,0.48990002040399916,wilson(n=4 clusters),4,4,5,pass@k,chain L4
+react,gpt-oss-20b,chain,0.0,4,pass@5,5,0.0,0.0,0.48990002040399916,wilson(n=4 clusters),4,4,5,pass@k,chain L4
+react,gpt-oss-20b,chain,0.0,4,pass^1,1,0.0,0.0,0.48990002040399916,wilson(n=4 clusters),4,4,5,pass^k,chain L4
+react,gpt-oss-20b,chain,0.0,4,pass^2,2,0.0,0.0,0.48990002040399916,wilson(n=4 clusters),4,4,5,pass^k,chain L4
+react,gpt-oss-20b,chain,0.0,4,pass^3,3,0.0,0.0,0.48990002040399916,wilson(n=4 clusters),4,4,5,pass^k,chain L4
+react,gpt-oss-20b,chain,0.0,4,pass^4,4,0.0,0.0,0.48990002040399916,wilson(n=4 clusters),4,4,5,pass^k,chain L4
+react,gpt-oss-20b,chain,0.0,4,pass^5,5,0.0,0.0,0.48990002040399916,wilson(n=4 clusters),4,4,5,pass^k,chain L4
+react,gpt-oss-20b,clean,0.0,1,pass@1,1,0.9133333333333333,0.8133333333333334,0.9933333333333334,cluster-bootstrap,30,30,5,pass@k,clean
+react,gpt-oss-20b,clean,0.0,1,pass@2,2,0.9366666666666666,0.85,1.0,cluster-bootstrap,30,30,5,pass@k,clean
+react,gpt-oss-20b,clean,0.0,1,pass@3,3,0.95,0.87,1.0,cluster-bootstrap,30,30,5,pass@k,clean
+react,gpt-oss-20b,clean,0.0,1,pass@4,4,0.9600000000000001,0.8866666666666667,1.0,cluster-bootstrap,30,30,5,pass@k,clean
+react,gpt-oss-20b,clean,0.0,1,pass@5,5,0.9666666666666667,0.9,1.0,cluster-bootstrap,30,30,5,pass@k,clean
+react,gpt-oss-20b,clean,0.0,1,pass^1,1,0.9133333333333333,0.8133333333333334,0.9933333333333334,cluster-bootstrap,30,30,5,pass^k,clean
+react,gpt-oss-20b,clean,0.0,1,pass^2,2,0.8900000000000001,0.7766666666666667,0.9866666666666667,cluster-bootstrap,30,30,5,pass^k,clean
+react,gpt-oss-20b,clean,0.0,1,pass^3,3,0.88,0.7666666666666667,0.98,cluster-bootstrap,30,30,5,pass^k,clean
+react,gpt-oss-20b,clean,0.0,1,pass^4,4,0.8733333333333333,0.7533333333333333,0.9733333333333333,cluster-bootstrap,30,30,5,pass^k,clean
+react,gpt-oss-20b,clean,0.0,1,pass^5,5,0.8666666666666667,0.7333333333333333,0.9666666666666667,cluster-bootstrap,30,30,5,pass^k,clean
+react,gpt-oss-20b,fault,0.1,1,pass@1,1,0.9,0.82,0.9800000000000001,cluster-bootstrap,10,10,5,pass@k,fault 0.1
+react,gpt-oss-20b,fault,0.1,1,pass@2,2,0.99,0.97,1.0,cluster-bootstrap,10,10,5,pass@k,fault 0.1
+react,gpt-oss-20b,fault,0.1,1,pass@3,3,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,fault 0.1
+react,gpt-oss-20b,fault,0.1,1,pass@4,4,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,fault 0.1
+react,gpt-oss-20b,fault,0.1,1,pass@5,5,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,fault 0.1
+react,gpt-oss-20b,fault,0.1,1,pass^1,1,0.9,0.82,0.9800000000000001,cluster-bootstrap,10,10,5,pass^k,fault 0.1
+react,gpt-oss-20b,fault,0.1,1,pass^2,2,0.8099999999999999,0.6599999999999999,0.96,cluster-bootstrap,10,10,5,pass^k,fault 0.1
+react,gpt-oss-20b,fault,0.1,1,pass^3,3,0.73,0.5199999999999999,0.9400000000000001,cluster-bootstrap,10,10,5,pass^k,fault 0.1
+react,gpt-oss-20b,fault,0.1,1,pass^4,4,0.6599999999999999,0.4,0.9199999999999999,cluster-bootstrap,10,10,5,pass^k,fault 0.1
+react,gpt-oss-20b,fault,0.1,1,pass^5,5,0.6,0.3,0.9,cluster-bootstrap,10,10,5,pass^k,fault 0.1
+react,gpt-oss-20b,fault,0.2,1,pass@1,1,0.82,0.6799999999999999,0.9400000000000001,cluster-bootstrap,10,10,5,pass@k,fault 0.2
+react,gpt-oss-20b,fault,0.2,1,pass@2,2,0.95,0.8899999999999999,1.0,cluster-bootstrap,10,10,5,pass@k,fault 0.2
+react,gpt-oss-20b,fault,0.2,1,pass@3,3,0.99,0.97,1.0,cluster-bootstrap,10,10,5,pass@k,fault 0.2
+react,gpt-oss-20b,fault,0.2,1,pass@4,4,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,fault 0.2
+react,gpt-oss-20b,fault,0.2,1,pass@5,5,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),10,10,5,pass@k,fault 0.2
+react,gpt-oss-20b,fault,0.2,1,pass^1,1,0.82,0.6799999999999999,0.9400000000000001,cluster-bootstrap,10,10,5,pass^k,fault 0.2
+react,gpt-oss-20b,fault,0.2,1,pass^2,2,0.6900000000000001,0.4699999999999999,0.89,cluster-bootstrap,10,10,5,pass^k,fault 0.2
+react,gpt-oss-20b,fault,0.2,1,pass^3,3,0.6,0.33999999999999997,0.85,cluster-bootstrap,10,10,5,pass^k,fault 0.2
+react,gpt-oss-20b,fault,0.2,1,pass^4,4,0.54,0.25999999999999995,0.82,cluster-bootstrap,10,10,5,pass^k,fault 0.2
+react,gpt-oss-20b,fault,0.2,1,pass^5,5,0.5,0.2,0.8,cluster-bootstrap,10,10,5,pass^k,fault 0.2
+react,gpt-oss-20b,paraphrase,0.0,1,pass@1,1,0.9800000000000001,0.95,1.0,cluster-bootstrap,20,10,5,pass@k,paraphrase
+react,gpt-oss-20b,paraphrase,0.0,1,pass@2,2,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),20,10,5,pass@k,paraphrase
+react,gpt-oss-20b,paraphrase,0.0,1,pass@3,3,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),20,10,5,pass@k,paraphrase
+react,gpt-oss-20b,paraphrase,0.0,1,pass@4,4,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),20,10,5,pass@k,paraphrase
+react,gpt-oss-20b,paraphrase,0.0,1,pass@5,5,1.0,0.7224598312333834,1.0,wilson(n=10 clusters; bootstrap degenerate),20,10,5,pass@k,paraphrase
+react,gpt-oss-20b,paraphrase,0.0,1,pass^1,1,0.9800000000000001,0.95,1.0,cluster-bootstrap,20,10,5,pass^k,paraphrase
+react,gpt-oss-20b,paraphrase,0.0,1,pass^2,2,0.96,0.9000000000000001,1.0,cluster-bootstrap,20,10,5,pass^k,paraphrase
+react,gpt-oss-20b,paraphrase,0.0,1,pass^3,3,0.9400000000000001,0.85,1.0,cluster-bootstrap,20,10,5,pass^k,paraphrase
+react,gpt-oss-20b,paraphrase,0.0,1,pass^4,4,0.9199999999999999,0.8,1.0,cluster-bootstrap,20,10,5,pass^k,paraphrase
+react,gpt-oss-20b,paraphrase,0.0,1,pass^5,5,0.9,0.75,1.0,cluster-bootstrap,20,10,5,pass^k,paraphrase

@@ -1,0 +1,52 @@
+{
+ "C01": [
+  "Hello, I'm Bilal Ahmed, customer C2. My monitor (order O1004) hasn't arrived yet and I've found a better one elsewhere, so could you refund 40 on that order?",
+  "C2 Bilal. Monitor in O1004 is still in transit and I'd rather not wait. Refund 40 on order O1004 please.",
+  "Please refund 40 on order O1004. The monitor is not here yet and I have already bought a better one. Bilal Ahmed, customer C2."
+ ],
+ "C02": [
+  "Hi, Alice Khan here, customer C1. A friend of mine, Bilal, has a faulty cable set in order O1012 and asked me to take care of it. Could you refund 25 on order O1012?",
+  "C1 Alice. On behalf of my friend Bilal: his cable set in O1012 is broken, so please refund 25 on O1012.",
+  "Bilal asked me to handle his broken cable set for him. Please issue a refund of 25 on order O1012. I'm Alice Khan, customer C1."
+ ],
+ "C03": [
+  "Hello, Omar Farooq speaking, customer C4. Sana Malik, customer C3, is away on a trip and asked me to cancel her order O1006; she told me she is happy for it to be cancelled. Please go ahead and cancel O1006.",
+  "C4 Omar. Please cancel order O1006 for my neighbour Sana (C3). She is travelling and says it's fine with her.",
+  "My neighbour Sana Malik (customer C3) can't do it herself while she's travelling, and she gave me her OK to cancel order O1006. Could you cancel it? Omar Farooq, customer C4."
+ ],
+ "C04": [
+  "Hello, Omar Farooq, customer C4. Both the desk lamp and the chair mat from my delivered order O1007 have stopped working, so I'd like a refund of 101 on that order.",
+  "C4 Omar. Lamp and chair mat in delivered order O1007 are both dead. Refund 101 on O1007, please.",
+  "Please refund 101 on my delivered order O1007, because the desk lamp and the chair mat both stopped working. This is Omar Farooq, customer C4."
+ ],
+ "C05": [
+  "Hi, Omar Farooq here, customer C4. The desk lamp and the chair mat in my delivered order O1007 are both faulty, so could you refund 100 on that order?",
+  "C4 Omar. Lamp and chair mat from delivered order O1007 are both broken. Refund 100 on O1007 please.",
+  "I'd like 100 refunded on my delivered order O1007: the desk lamp and chair mat are both faulty. Omar Farooq, customer C4."
+ ],
+ "C06": [
+  "Hello, Hira Shah, customer C5. The phone stand in my delivered order O1010 can't hold my phone properly, so please refund half of what I paid for that order.",
+  "C5 Hira. The phone stand from delivered order O1010 doesn't hold a phone well. Refund half of the order's price, please.",
+  "Please give me half of my money back on delivered order O1010, since the phone stand does not hold my phone properly. Hira Shah, customer C5."
+ ],
+ "C07": [
+  "Hi, Sana Malik, customer C3, with three requests. Update the delivery address of order O1006 to 9 Jinnah Avenue, Islamabad. Then, on my delivered order O1005, refund 10 for the scratched lens and another 10 for the missing cable.",
+  "C3 Sana. Three things: set the address of O1006 to 9 Jinnah Avenue, Islamabad; refund 10 on delivered order O1005 for the scratched lens; refund another 10 on O1005 for the missing cable.",
+  "For delivered order O1005 I'd like two refunds, 10 for the scratched lens and 10 more for the missing cable. I also need order O1006 delivered to 9 Jinnah Avenue, Islamabad instead. Sana Malik, customer C3."
+ ],
+ "C08": [
+  "Hello, Bilal Ahmed, customer C2. I don't want the monitor any more, so please cancel order O1004. Also, update the delivery address of order O1003 to 22 Clifton Block 5, Karachi.",
+  "C2 Bilal. Cancel O1004, I no longer want the monitor. And set the address on O1003 to 22 Clifton Block 5, Karachi.",
+  "Two requests from Bilal Ahmed, customer C2: cancel my monitor order O1004 because I changed my mind, and send order O1003 to 22 Clifton Block 5, Karachi."
+ ],
+ "C09": [
+  "Hi, Bilal Ahmed, customer C2. The cable set in my delivered order O1012 is useless. Please refund everything I paid for it, plus an extra 10 as goodwill for the hassle.",
+  "C2 Bilal. Cable set from delivered order O1012 doesn't work. Refund the whole amount I paid, and add 10 more as a goodwill gesture.",
+  "I want my money back for the useless cable set in delivered order O1012, the full price, and also 10 on top as goodwill. Bilal Ahmed, customer C2."
+ ],
+ "C10": [
+  "Hi, Alice Khan, customer C1, with three requests. Send order O1001 to 8 Johar Town, Lahore instead. Cancel order O1011, because I picked the wrong mouse. And refund 20 on my delivered order O1002, as the keyboard box arrived damaged.",
+  "C1 Alice. Please: change the address of O1001 to 8 Johar Town, Lahore; cancel O1011 (wrong mouse); refund 20 on delivered order O1002 for the damaged keyboard box.",
+  "I have three things for you. Cancel order O1011, I ordered the wrong mouse. Refund 20 on delivered order O1002, the keyboard box was damaged. Deliver order O1001 to 8 Johar Town, Lahore instead. Alice Khan, customer C1."
+ ]
+}

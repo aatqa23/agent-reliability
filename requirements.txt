@@ -1,0 +1,10 @@
+openai
+pydantic
+tqdm
+pandas
+python-dotenv
+numpy
+scipy
+scikit-learn
+matplotlib
+joblib

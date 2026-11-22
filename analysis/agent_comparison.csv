@@ -1,0 +1,7 @@
+model,condition,fault_rate,chain_len,metric,a_minus_b,ci_lo,ci_hi,units,clusters,agent_a,agent_b
+gpt-oss-120b,chain,0.0,4,pass@1,0.7,0.4,1.0,4,4,plan_execute,react
+gpt-oss-120b,clean,0.0,1,pass@1,0.0,0.0,0.0,10,10,plan_execute,react
+gpt-oss-20b,chain,0.0,4,pass@1,0.0,0.0,0.0,2,2,plan_execute,react
+gpt-oss-20b,clean,0.0,1,pass@1,-0.02,-0.06,0.0,10,10,plan_execute,react
+gpt-oss-120b,clean,0.0,1,pass^5,0.0,0.0,0.0,10,10,plan_execute,react
+gpt-oss-20b,clean,0.0,1,pass^5,-0.1,-0.3,0.0,10,10,plan_execute,react
