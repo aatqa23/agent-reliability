@@ -75,16 +75,30 @@ episodes before starting.
 
 ### Phase-3 results and cost per run
 
-`results/phase3/e4_pe_len4_v2.jsonl`: plan-then-execute (fixed planner, commit 93e094f) on the 4 length-4 chains used
-in the reduced plan (`--lens 4 --per-len 4`), both gpt-oss models, seeds 0-4 (40 episodes). It is kept OUT of
-`results/*.jsonl` so the existing analysis is not changed until all P&E reruns are in; then move it next to the other
-logs and move the pre-fix files (`e1_pe_b.jsonl`, `e4_pe_len4.jsonl`) to `results/pre_fix/`. To continue with more
-chains, copy this file to your `--out` file first: finished episodes are skipped.
+Plan-then-execute reruns with the fixed planner (commit 93e094f or later), all with the phase-3 log fields:
 
-| 4-request chains | model | pass@1 | pass@5 | pass^5 |
-|---|---|---|---|---|
-| ReAct (`e4.jsonl`) | 120b / 20b | 0.05 / 0.00 | 0.25 / 0.00 | 0.00 / 0.00 |
-| P&E fixed | 120b / 20b | 0.70 / 0.50 | 1.00 / 0.75 | 0.25 / 0.25 |
+| File | What | Who |
+|---|---|---|
+| `results/phase3/e1_pe_b_v2.jsonl` | single tasks B01-B10, both models, seeds 0-4 (100) | C |
+| `results/phase3/e4_pe_v2_len2_large.jsonl` | length-2 chains (same 4 as ReAct), gpt-oss-120b, seeds 0-4 (20) | C |
+| `results/phase3/e4_pe_len2_v2_20b.jsonl` | the same length-2 chains, gpt-oss-20b (20) | A |
+| `results/phase3/e4_pe_len4_v2.jsonl` | length-4 chains (same 4 as ReAct), both models (40) | A |
+| `results/phase3/replication/` | independent rerun of `e1_pe_b_v2` (120b all 50, 20b 22 of 50): same outcome, 50/50 on 120b. Not used in the analysis (duplicate episode keys) | A |
+
+These are kept OUT of `results/*.jsonl` so the existing analysis is unchanged until the switch: move the four files
+above into `results/`, and move the pre-fix files (`e1_pe_b.jsonl`, `e4_pe_len4.jsonl`) to `results/pre_fix/`.
+All 180 episodes have `plan_ok = true`. Length 3 was not rerun for plan-then-execute (token budget).
+
+Same units for both agents (ReAct rows from `e1_b.jsonl` and `e4.jsonl`):
+
+| chain length | model | ReAct pass@1 / pass@5 / pass^5 | P&E pass@1 / pass@5 / pass^5 |
+|---|---|---|---|
+| 1 (B tasks) | 120b | 1.00 / 1.00 / 1.00 | 1.00 / 1.00 / 1.00 |
+| 1 (B tasks) | 20b | 1.00 / 1.00 / 1.00 | 1.00 / 1.00 / 1.00 |
+| 2 | 120b | 0.90 / 1.00 / 0.50 | 0.95 / 1.00 / 0.75 |
+| 2 | 20b | 0.50 / 0.50 / 0.50 | 0.95 / 1.00 / 0.75 |
+| 4 | 120b | 0.05 / 0.25 / 0.00 | 0.70 / 1.00 / 0.25 |
+| 4 | 20b | 0.00 / 0.00 / 0.00 | 0.50 / 0.75 / 0.25 |
 
 gpt-oss-20b fails A10 ("refund the full amount", 35 of 35) in 8 of its 10 failures: it reads the full refund as
 exceeding the order total. The policy text was left unchanged on purpose (changing it would break comparability).

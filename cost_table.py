@@ -6,7 +6,8 @@
 
 Writes analysis/cost_per_run.csv and prints a Markdown table. Rows written before phase 3 have no token fields and
 are skipped (they are counted in the "skipped" line). Infrastructure errors are dropped; the newest row per episode
-wins, as in metrics.load_logs. results/smoke/ is ignored (test runs, partly with an older planner).
+wins, as in metrics.load_logs. results/smoke/ (test runs, partly with an older planner) and results/phase3/replication/ (duplicates of
+episodes already in results/phase3/) are ignored.
 
 Columns: n = episodes; tokens = mean total tokens per episode (prompt + completion; cached replies count with the
 usage they had when they ran live); in/out = mean prompt/completion tokens; calls = mean LLM calls; wall_s = mean
@@ -30,7 +31,8 @@ FREE_TIER_DAILY = 200_000
 
 def default_logs() -> list:
     files = glob.glob(os.path.join("results", "**", "*.jsonl"), recursive=True)
-    return sorted(f for f in files if os.sep + "smoke" + os.sep not in f)
+    skip = (os.sep + "smoke" + os.sep, os.sep + "replication" + os.sep)
+    return sorted(f for f in files if not any(x in f for x in skip))
 
 
 def load(paths: list) -> tuple[pd.DataFrame, int]:
