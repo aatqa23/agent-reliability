@@ -1,0 +1,9 @@
+agent,model,condition,chain_len,n,tokens,in,out,calls,wall_s,success,tok_per_success,per_200k,zero_tok
+plan_execute,openai/gpt-oss-120b,clean,1,3,5694,5238,456,5.3,12.0,1.0,5694,35,0
+plan_execute,openai/gpt-oss-20b,clean,1,3,5515,4995,520,5.0,30.2,1.0,5515,36,0
+plan_execute,qwen/qwen3.8-27b,clean,1,3,8609,7453,1156,5.3,34.4,1.0,8609,23,0
+react,openai/gpt-oss-120b,clean,1,3,3274,3084,191,3.0,7.7,1.0,3274,61,1
+react,openai/gpt-oss-20b,clean,1,3,2416,2264,152,3.0,5.8,1.0,2416,82,0
+react,qwen/qwen3.8-27b,clean,1,3,4396,3911,485,3.3,18.8,1.0,4396,45,0
+plan_execute,openai/gpt-oss-120b,chain,4,20,24077,22139,1939,11.6,247.8,0.7,34396,8,0
+plan_execute,openai/gpt-oss-20b,chain,4,20,21163,19463,1700,10.6,240.6,0.5,42327,9,0

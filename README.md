@@ -73,6 +73,26 @@ plan-then-execute about 5,100 (gpt-oss) and 8,400 (qwen). So one day of a 200k k
 ReAct episodes, or 35 gpt-oss or 20 qwen plan-then-execute episodes. Use `run_experiments.py ... --dry-run` to count
 episodes before starting.
 
+### Phase-3 results and cost per run
+
+`results/phase3/e4_pe_len4_v2.jsonl`: plan-then-execute (fixed planner, commit 93e094f) on the 4 length-4 chains used
+in the reduced plan (`--lens 4 --per-len 4`), both gpt-oss models, seeds 0-4 (40 episodes). It is kept OUT of
+`results/*.jsonl` so the existing analysis is not changed until all P&E reruns are in; then move it next to the other
+logs and move the pre-fix files (`e1_pe_b.jsonl`, `e4_pe_len4.jsonl`) to `results/pre_fix/`. To continue with more
+chains, copy this file to your `--out` file first: finished episodes are skipped.
+
+| 4-request chains | model | pass@1 | pass@5 | pass^5 |
+|---|---|---|---|---|
+| ReAct (`e4.jsonl`) | 120b / 20b | 0.05 / 0.00 | 0.25 / 0.00 | 0.00 / 0.00 |
+| P&E fixed | 120b / 20b | 0.70 / 0.50 | 1.00 / 0.75 | 0.25 / 0.25 |
+
+gpt-oss-20b fails A10 ("refund the full amount", 35 of 35) in 8 of its 10 failures: it reads the full refund as
+exceeding the order total. The policy text was left unchanged on purpose (changing it would break comparability).
+
+    python cost_table.py          # tokens, calls, wall-clock, tokens per success -> analysis/cost_per_run.csv
+
+`cost_table.py` reads every `results/**/*.jsonl` row that has token fields (phase 3 onward) and ignores `results/smoke/`.
+
 ### Offline reruns from a cache
 
 `llm.py` caches every reply in `results/cache/` (key = messages, model, temperature, seed, tools, reasoning effort).
