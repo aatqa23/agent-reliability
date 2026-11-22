@@ -134,6 +134,16 @@ class EpisodeLog:
     tool_calls: int
     error: str              # "" if none (e.g. "max_steps", "parse_error", "api_error")
     latency_s: float
+    # ---- added in phase 3 (A). Defaults keep old rows loadable; old rows simply lack these keys.
+    wall_clock_s: Optional[float] = None       # whole episode (setup + agent + assertion check), seconds
+    prompt_tokens: Optional[int] = None        # summed over every LLM call of the episode (live or cached)
+    completion_tokens: Optional[int] = None
+    total_tokens: Optional[int] = None         # = what the episode cost when it ran live
+    live_tokens: Optional[int] = None          # tokens actually spent in THIS run (0 if fully cached)
+    api_calls: Optional[int] = None            # live API calls this run
+    cache_hits: Optional[int] = None           # calls served from results/cache
+    untracked_calls: Optional[int] = None      # cache hits from old entries without stored usage (tokens unknown)
+    plan_ok: Optional[bool] = None             # plan_execute only: a valid plan reached the executor
 
     def to_json(self) -> str:
         return json.dumps(asdict(self))

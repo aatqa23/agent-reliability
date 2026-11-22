@@ -1,0 +1,1 @@
+{"reply": "{\"thought\": \"\", \"action\": \"finish\", \"message\": \"Your order O1001 has been successfully cancelled. If you have any other questions or need further assistance, feel free to let us know.\"}", "model": "openai/gpt-oss-20b", "seed": 0, "usage": {"prompt_tokens": 771, "completion_tokens": 44, "total_tokens": 815}}

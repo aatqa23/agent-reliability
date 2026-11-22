@@ -1,0 +1,1 @@
+{"reply": "{\"action\":\"finish\",\"message\":\"Your request to cancel order O1001 has been completed. No further actions are pending. Thank you for contacting us!\"}", "model": "openai/gpt-oss-20b", "seed": 0, "usage": {"prompt_tokens": 1009, "completion_tokens": 54, "total_tokens": 1063}}

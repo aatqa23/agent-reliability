@@ -4,6 +4,7 @@
   python run_e1.py                                  # full run: tasks/A.json, both models, n=5
   python run_e1.py --workers 1 --delay 1.0          # gentler on rate limits
   python run_e1.py --summary-only                   # just print the summary table
+  python run_e1.py --models qwen --out results/e1_qwen.jsonl   # other model family (alias from llm.MODELS)
 
 Safe to stop (Ctrl-C) and re-run: finished episodes are skipped. Episodes that ended in an
 infrastructure error (api_error / crash) are retried on the next run; the newest line wins.
@@ -24,6 +25,14 @@ from run_episode import run_episode
 
 DEFAULT_MODELS = ["openai/gpt-oss-120b", "openai/gpt-oss-20b"]
 KEY_FIELDS = ("task_id", "agent", "model", "condition", "paraphrase_idx", "fault_rate", "chain_len", "seed")
+
+
+def resolve_models(names):
+    """Accept the short aliases from llm.MODELS (large, small, qwen) as well as full model ids."""
+    from llm import MODELS
+    return [MODELS.get(n, n) for n in names]
+
+
 CLEAN = {"name": "clean", "paraphrase_idx": None, "fault_rate": 0.0, "chain_len": 1}
 
 
@@ -122,6 +131,8 @@ def main(argv=None) -> None:
     ap.add_argument("--out", default=os.path.join("results", "e1.jsonl"))
     ap.add_argument("--summary-only", action="store_true")
     a = ap.parse_args(argv)
+
+    a.models = resolve_models(a.models)
 
     if a.summary_only:
         print_summary(a.out)

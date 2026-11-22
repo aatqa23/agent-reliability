@@ -1,0 +1,1 @@
+{"reply": "{\"thought\": \"I'll help you with both requests. Let me start by checking order O1011.\\n\\n\", \"action\": \"get_order\", \"args\": {\"order_id\": \"O1011\"}}", "model": "qwen/qwen3.8-27b", "seed": 0, "usage": {"prompt_tokens": 1425, "completion_tokens": 78, "total_tokens": 1503}}

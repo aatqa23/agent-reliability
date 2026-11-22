@@ -5,7 +5,7 @@ import sys
 
 CHECKS = ["contract.py", "solve_tasks.py", "solve_tasks_c.py", "test_tools.py", "test_react.py", "test_plan_execute.py",
           "test_llm.py", "test_run.py", "test_faults.py", "test_cache.py", "paraphraser.py --check", "chains.py --check",
-          "test_metrics.py", "test_task_classifier.py"]
+          "test_metrics.py", "test_task_classifier.py", "test_phase3.py", "replay_sample.py --check"]
 failed = []
 for c in CHECKS:
     r = subprocess.run([sys.executable, *c.split()], capture_output=True, text=True)

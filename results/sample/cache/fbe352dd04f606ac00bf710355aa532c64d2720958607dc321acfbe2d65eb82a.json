@@ -1,0 +1,1 @@
+{"reply": "{\"thought\": \"\", \"action\": \"get_order\", \"args\": {\"order_id\": \"O1011\"}}", "model": "openai/gpt-oss-120b", "seed": 0, "usage": {"prompt_tokens": 649, "completion_tokens": 50, "total_tokens": 699}}

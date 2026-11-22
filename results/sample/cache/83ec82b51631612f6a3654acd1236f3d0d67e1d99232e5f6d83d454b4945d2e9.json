@@ -1,0 +1,1 @@
+{"reply": "{\"thought\": \"\", \"action\": \"modify_order_address\", \"args\": {\"address\": \"45 Gulberg III, Lahore\", \"order_id\": \"O1011\"}}", "model": "qwen/qwen3.8-27b", "seed": 0, "usage": {"prompt_tokens": 1156, "completion_tokens": 129, "total_tokens": 1285}}

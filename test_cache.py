@@ -81,7 +81,22 @@ script["mode"] = "bad_request"
 before = len(os.listdir(llm.CACHE_DIR))
 out = llm.chat([{"role": "user", "content": "x"}], "m1", 0.7, 0, TL)
 expect("tool_use_failed fallback returned to agent", out == "garbled")
-expect("fallback text NOT cached", len(os.listdir(llm.CACHE_DIR)) == before)
+# (A, phase 3) the fallback is stored flagged, so offline replays can reproduce it, but live runs never serve it
+fb_key = llm.cache_key([{"role": "user", "content": "x"}], "m1", 0.7, 0, TL)
+with open(llm._cache_path(fb_key)) as f:
+    fb_entry = json.load(f)
+expect("fallback text stored only as a flagged entry", len(os.listdir(llm.CACHE_DIR)) == before + 1
+       and fb_entry.get("fallback") is True and fb_entry["reply"] == "garbled")
+expect("flagged fallback is a miss for live runs", llm._cache_get(fb_key) is None)
+os.environ["LLM_OFFLINE"] = "1"
+expect("flagged fallback is served in offline replays", llm.chat([{"role": "user", "content": "x"}], "m1", 0.7, 0, TL) == "garbled")
+try:
+    llm.chat([{"role": "user", "content": "never seen"}], "m1", 0.7, 0, TL)
+    expect("offline miss raises CacheMiss", False)
+except llm.CacheMiss:
+    expect("offline miss raises CacheMiss (no API call)", True)
+del os.environ["LLM_OFFLINE"]
+before = len(os.listdir(llm.CACHE_DIR))
 script["mode"] = "boom"
 try:
     llm.chat([{"role": "user", "content": "y"}], "m1", 0.7, 0, TL)
@@ -91,6 +106,8 @@ except RuntimeError:
 script["mode"] = "ok"
 out = llm.chat([{"role": "user", "content": "x"}], "m1", 0.7, 0, TL)
 expect("after failure the next call is live and then cached", out.startswith("reply#"))
+with open(llm._cache_path(fb_key)) as f:
+    expect("live success replaces the fallback entry", "fallback" not in json.load(f))
 
 # corrupt cache file is treated as a miss and repaired
 key = llm.cache_key(M, "m1", 0.7, 0, TL)

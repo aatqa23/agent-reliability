@@ -27,7 +27,7 @@ from tqdm import tqdm
 import chains as chains_mod
 import llm
 from contract import EpisodeLog, append_log, load_base_db
-from run_e1 import DEFAULT_MODELS, dedupe, is_infra, key_of, read_logs
+from run_e1 import DEFAULT_MODELS, dedupe, is_infra, key_of, read_logs, resolve_models
 from run_episode import run_episode
 from taskset import TASK_FILES, load_all_tasks, inject_paraphrases
 
@@ -189,6 +189,8 @@ def main(argv=None) -> None:
     ap.add_argument("--only-complete", type=int, default=None, help="(merge) keep only units that have all seeds 0..N-1")
     ap.add_argument("--dry-run", action="store_true", help="count episodes and estimate time, run nothing")
     a = ap.parse_args(argv)
+
+    a.models = resolve_models(a.models)
 
     if a.exp == "summary":
         for f in a.files or [DEFAULTS[k] for k in ("clean", "e2", "e3", "e4")]:

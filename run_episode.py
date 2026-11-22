@@ -35,6 +35,9 @@ def default_condition() -> dict:
 
 
 def run_episode(task: dict, agent: str, model: str, condition: dict | None = None, seed: int = 0) -> dict:
+    import llm
+    t_start = time.time()
+    llm.usage_reset()              # per-thread token counter for this episode
     cond = {**default_condition(), **(condition or {})}
     db = copy.deepcopy(_base())
 
@@ -65,5 +68,8 @@ def run_episode(task: dict, agent: str, model: str, condition: dict | None = Non
         success=check_assertions(db, task["assertions"]),
         steps=res["steps"], tool_calls=res["tool_calls"], error=res["error"],
         latency_s=round(latency, 3),
+        plan_ok=res.get("plan_ok"),
+        **llm.usage_get(),
     )
+    log.wall_clock_s = round(time.time() - t_start, 3)
     return asdict(log)

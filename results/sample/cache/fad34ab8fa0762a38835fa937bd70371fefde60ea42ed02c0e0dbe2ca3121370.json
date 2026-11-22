@@ -1,0 +1,1 @@
+{"reply": "{\"action\": \"finish\", \"message\": \"Your address has been updated for order O1011, and a $30 refund has been processed for order O1002. Let us know if you need any further assistance!\"}", "model": "openai/gpt-oss-120b", "seed": 0, "usage": {"prompt_tokens": 947, "completion_tokens": 50, "total_tokens": 997}}

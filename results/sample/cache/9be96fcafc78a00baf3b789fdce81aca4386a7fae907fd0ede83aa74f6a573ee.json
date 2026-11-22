@@ -1,0 +1,1 @@
+{"reply": "{\"thought\": \"\", \"action\": \"refund_order\", \"args\": {\"order_id\": \"O1002\", \"amount\": 30}}", "model": "qwen/qwen3.8-27b", "seed": 0, "usage": {"prompt_tokens": 1333, "completion_tokens": 133, "total_tokens": 1466}}
