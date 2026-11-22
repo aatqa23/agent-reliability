@@ -1,0 +1,1 @@
+{"reply": "{\"action\":\"finish\",\"message\":\"I\u2019m sorry, but I can\u2019t cancel that order because it belongs to a different customer. Please have the account holder request the cancellation directly.\"}", "model": "openai/gpt-oss-120b", "seed": 0, "usage": {"prompt_tokens": 922, "completion_tokens": 62, "total_tokens": 984}}

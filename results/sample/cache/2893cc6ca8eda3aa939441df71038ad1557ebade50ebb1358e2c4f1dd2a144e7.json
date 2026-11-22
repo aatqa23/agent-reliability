@@ -1,0 +1,1 @@
+{"reply": "{\"thought\": \"The address for order O1011 has been updated to 45 Gulberg III, Lahore. Now let me check order O1002 for the refund.\\n\\n\", \"action\": \"get_order\", \"args\": {\"order_id\": \"O1002\"}}", "model": "qwen/qwen3.8-27b", "seed": 0, "usage": {"prompt_tokens": 1623, "completion_tokens": 99, "total_tokens": 1722}}

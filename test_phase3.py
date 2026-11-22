@@ -11,7 +11,7 @@ import tempfile
 from types import SimpleNamespace as NS
 
 import llm
-from agents.plan_execute import PLAN_RETRY_TEXT, build_plan_prompt, plan_is_valid, run
+from agents.plan_execute import PLAN_RETRY_TEXT, build_plan_prompt, clean_plan, plan_is_valid, run
 from contract import EpisodeLog, load_base_db
 from env.tools import TOOLS
 from run_e1 import resolve_models
@@ -49,6 +49,12 @@ for bad in ["", "   ", '{"name": "lookup_customer", "arguments": {"customer_id":
             '{"action":"finish","message":"Your order O1011 has been cancelled."}',
             'Sure: {"thought": "x", "action": "get_order", "args": {"order_id": "O1"}}']:
     expect(f"rejected as a plan: {bad[:40]!r}", not plan_is_valid(bad))
+
+expect("plan prompt forbids guessing order facts", "Do not guess who owns an order" in pp)
+for head in ["### Final response", "**Final reply**", "Final response:"]:
+    expect(f"pre-written reply dropped ({head})",
+           clean_plan(f"1. get_order(O1). ACT if C1.\n\n---\n\n{head}\n\nHi, done.") == "1. get_order(O1). ACT if C1.")
+expect("plan without a final reply is kept as is", clean_plan("1. a\n2. b") == "1. a\n2. b")
 
 # first reply is a tool call (what gpt-oss produced before the fix), the retry gives a real plan
 rec = []

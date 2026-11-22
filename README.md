@@ -122,6 +122,14 @@ slightly; an episode whose every call was rejected shows 0 tokens.
   Re-run plan-then-execute into NEW files (for example `results/e1_pe_b_v2.jsonl`), because the runner skips episodes
   that already exist in the output file, and move the old files out of `results/` (e.g. to `results/pre_fix/`) when
   the new ones are complete so the analysis does not pool both.
+- **Planner no longer guesses order facts (second fix).** With only the fix above, plans were valid prose but stated
+  outcomes the planner could not know yet (e.g. "O1002 belongs to Bilal -> yes", "total is $150") and pre-wrote the
+  final reply; the executor followed those guesses, skipped get_order and refused valid requests. The planning prompt
+  now says no order data has been seen, and asks for each request: get_order, then "ACT only if <owner, status,
+  limits>", otherwise REFUSE; a pre-written final reply is cut off (`clean_plan()`). Seed 0 on the four length-4
+  chains: gpt-oss-20b 0/2 (first fix only) -> 3/4, gpt-oss-120b 3/4. Caveat: this was found by reading traces of the
+  same chains that are evaluated, so treat it as a design iteration, and use only runs made with this version
+  (commit after 5100997) for plan-then-execute results.
 - **Third model, other family:** `qwen/qwen3.8-27b` (alias `qwen`), same client, temperature 0.7, tools, policies and
   `reasoning_effort="low"`. It was the only non-gpt-oss chat model available on Groq for our key (the Llama models
   Groq lists are prompt-guard classifiers, not chat models).

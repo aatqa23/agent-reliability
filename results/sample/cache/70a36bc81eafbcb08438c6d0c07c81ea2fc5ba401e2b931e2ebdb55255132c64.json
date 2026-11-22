@@ -1,1 +1,0 @@
-{"reply": "{\"thought\": \"\", \"action\": \"finish\", \"message\": \"Your order O1001 has been cancelled successfully. No further action is needed on your part. If you have any other questions, feel free to ask!\"}", "model": "qwen/qwen3.8-27b", "seed": 0, "usage": {"prompt_tokens": 1406, "completion_tokens": 81, "total_tokens": 1487}}

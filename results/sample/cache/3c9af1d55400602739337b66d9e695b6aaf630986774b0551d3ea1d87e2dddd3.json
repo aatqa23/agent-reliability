@@ -1,1 +1,0 @@
-{"reply": "{\"name\": \"json\", \"arguments\": {\"action\":\"finish\",\"message\":\"I\u2019m sorry, but I can\u2019t cancel order O1006 because it belongs to a different customer. For security reasons we can only act on orders that belong to the requesting customer.\"}}", "model": "openai/gpt-oss-120b", "seed": 0, "usage": null, "fallback": true}

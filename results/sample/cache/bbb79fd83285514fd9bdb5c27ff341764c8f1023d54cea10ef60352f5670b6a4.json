@@ -1,0 +1,1 @@
+{"reply": "I\u2019m sorry, but I can\u2019t cancel that order for you. Only the customer who placed the order (in this case, Sana\u202fMalik, customer\u202fC3) can request a cancellation.", "model": "openai/gpt-oss-20b", "seed": 0, "usage": {"prompt_tokens": 587, "completion_tokens": 110, "total_tokens": 697}}

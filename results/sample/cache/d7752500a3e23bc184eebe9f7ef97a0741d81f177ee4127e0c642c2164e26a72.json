@@ -1,1 +1,0 @@
-{"reply": "{\"thought\": \"The address for O1011 has been updated. Now let me check order O1002 for the refund.\\n\\n\", \"action\": \"get_order\", \"args\": {\"order_id\": \"O1002\"}}", "model": "qwen/qwen3.8-27b", "seed": 0, "usage": {"prompt_tokens": 1652, "completion_tokens": 118, "total_tokens": 1770}}

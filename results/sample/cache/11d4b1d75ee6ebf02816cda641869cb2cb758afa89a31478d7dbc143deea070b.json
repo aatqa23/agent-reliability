@@ -1,0 +1,1 @@
+{"reply": "{\"action\":\"finish\",\"message\":\"Your delivery address for order O1011 has been updated to 45 Gulberg III, Lahore, and a $30 refund has been processed for order O1002. Let me know if you need any further assistance!\"}", "model": "openai/gpt-oss-120b", "seed": 0, "usage": {"prompt_tokens": 1284, "completion_tokens": 56, "total_tokens": 1340}}

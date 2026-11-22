@@ -1,0 +1,1 @@
+{"reply": "{\"action\":\"refund_order\",\"args\":{\"order_id\":\"O1002\",\"amount\":30}}", "model": "openai/gpt-oss-120b", "seed": 0, "usage": {"prompt_tokens": 1237, "completion_tokens": 36, "total_tokens": 1273}}

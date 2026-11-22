@@ -38,11 +38,15 @@ MAX_PLAN_TRIES = 2          # first plan + one retry if it came back empty or as
 PLAN_TEXT = """Before acting, write a short numbered PLAN as plain text.
 You cannot call any tool or function in this step, and you must not write JSON. The tools are only listed
 so you know what you will be able to do later.
-If the customer sends several requests or separate messages, plan EACH one, in order.
-For each request give: the customer who is asking, the order, the checks you will make
-(does the order belong to that customer? is its status allowed? is the amount within the policy limits?),
-and the expected outcome: ACT (which tool call) or REFUSE (which policy, and why).
-Do not write the final reply yet."""
+You have NOT seen any order data yet. Do not guess who owns an order, its status, its total or what was already
+refunded: you will only know after get_order. Customers can be wrong about their own orders.
+If the customer sends several requests or separate messages, plan EACH one, in order, and number them.
+For each request give: the customer who is asking (customer id), the order, and the steps:
+  a) get_order(<order>) to check the owner, the status and the total;
+  b) the condition for acting, e.g. "ACT: refund_order(O1, 30) only if customer_id is C2, status is delivered,
+     30 <= 100 and refunded + 30 <= total";
+  c) otherwise REFUSE, naming the policy that would be broken.
+Do not decide any outcome yet, and do not write the final reply."""
 
 AUDIT_TEXT = """AUDIT before you finish. Check your work against the customer's request(s).
 
@@ -66,6 +70,16 @@ def build_plan_prompt() -> str:
 
 
 _TOOL_CALL_RE = re.compile(r'^\s*[{\[]\s*"(name|action|function|tool)"\s*:')
+
+
+_FINAL_REPLY_RE = re.compile(r"\n\s*(#+\s*|\*\*)?\s*(final (response|reply)|reply to the customer)\b", re.I)
+
+
+def clean_plan(text: str) -> str:
+    """Drop a pre-written final reply: it states outcomes before any order was checked."""
+    t = (text or "").strip()
+    m = _FINAL_REPLY_RE.search(t)
+    return t[:m.start()].rstrip(" \n-*#") if m and m.start() > 0 else t
 
 
 def plan_is_valid(text: str) -> bool:
@@ -119,15 +133,16 @@ def run(instruction, db, tools, model, seed, fault_hook=None, max_steps=15, chat
                     "trace": plan_messages, "plan_ok": False}
         steps += 1
         if plan_is_valid(reply):
-            plan, plan_ok = reply.strip(), True
+            plan, plan_ok = clean_plan(reply), True
             break
         plan_messages = plan_messages + [{"role": "assistant", "content": reply or ""},
                                          {"role": "user", "content": PLAN_RETRY_TEXT}]
 
     system = base_prompt
     if plan:
-        system += ("\n\nYour plan (written before acting). Follow it, but adapt if an Observation contradicts it:\n"
-                   + plan)
+        system += ("\n\nYour plan (written before acting, without any order data). Follow its order of requests, "
+                   "check every order with get_order before acting on it, and decide each outcome from the "
+                   "Observations, not from the plan:\n" + plan)
     messages = [{"role": "system", "content": system}, {"role": "user", "content": instruction}]
 
     # ---- phase 2 + 3: execute, audit on the first finish

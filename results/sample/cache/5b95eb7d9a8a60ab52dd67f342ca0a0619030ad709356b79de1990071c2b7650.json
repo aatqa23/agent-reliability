@@ -1,1 +1,0 @@
-{"reply": "{\"thought\": \"\", \"action\": \"get_order\", \"args\": {\"order_id\": \"O1006\"}}", "model": "qwen/qwen3.8-27b", "seed": 0, "usage": {"prompt_tokens": 1302, "completion_tokens": 153, "total_tokens": 1455}}

@@ -1,0 +1,1 @@
+{"reply": "{\"action\":\"finish\",\"message\":\"I have confirmed that your order O1001 has been cancelled as you requested. No further actions are needed.\"}", "model": "openai/gpt-oss-120b", "seed": 0, "usage": {"prompt_tokens": 1161, "completion_tokens": 64, "total_tokens": 1225}}
